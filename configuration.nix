@@ -40,6 +40,15 @@
   # Allow unfree software 
   nixpkgs.config.allowUnfree = true;
 
+  # Docker
+  virtualisation.docker.enable = true;
+
+  # Enable zsh shell
+  programs.zsh.enable = true;
+
+  # zsh configurations
+  programs.zsh.interactiveShellInit = ''eval "$(fzf --zsh)"''; 
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -79,10 +88,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.richis = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     packages = with pkgs; [
       tree
     ];
+    shell = pkgs.zsh;
   };
 
   # programs.firefox.enable = true;
@@ -97,6 +107,12 @@
     wezterm
     git
     docker
+    btop
+    fzf
+    obs-studio
+    kiro
+    vscode
+    discord
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
