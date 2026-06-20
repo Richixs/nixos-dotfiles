@@ -17,7 +17,7 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
-  boot.loader.grub.timeout = 5;
+  boot.loader.timeout = 5;
   boot.loader.grub.theme = ./grub/crt-amber-theme;
   
 
@@ -98,6 +98,7 @@
     extraGroups = [ "wheel" "docker" ];
     packages = with pkgs; [
       tree
+      element-desktop
     ];
     shell = pkgs.zsh;
   };
