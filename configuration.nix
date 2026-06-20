@@ -10,9 +10,16 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  # Use the GRUB boot loader.
+  boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.useOSProber = true;
+  boot.loader.grub.timeout = 5;
+  boot.loader.grub.theme = ./grub/crt-amber-theme;
+  
 
   networking.hostName = "richixs"; # Define your hostname.
 
