@@ -3,7 +3,7 @@
 {
   programs.zsh = {
     enable = true;
-    initExtra = ''
+    initContent = ''
       # fzf
       eval "$(fzf --zsh)"
       # alias
