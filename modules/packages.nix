@@ -16,5 +16,7 @@
     vscode
     discord
     lsd
+    steam
+    prismlauncher
   ];
 }
